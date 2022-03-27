@@ -1,3 +1,11 @@
 django
 
 django-extensions
+
+django-environ
+
+python-binance
+
+openpyxl
+
+pandas

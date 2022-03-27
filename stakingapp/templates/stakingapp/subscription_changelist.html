@@ -1,0 +1,16 @@
+{% extends 'admin/change_list.html' %}
+
+{% block object-tools %}
+    <div>
+        <form action="update_subscription/" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="id_file">Choisir un fichier .xlsx</label>
+            <input id="id_file" type="file" accept=".xlsx" name="file" title="Choisir un fichier .xlsx" required />
+            <br />
+            <br />
+            <button type="submit">Mettre à jour</button>
+        </form>
+    </div>
+    <br />
+    {{ block.super }}
+{% endblock %}

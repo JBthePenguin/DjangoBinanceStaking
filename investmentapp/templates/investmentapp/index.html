@@ -38,6 +38,7 @@
                 <th scope="col">Invest</th>
                 <th scope="col">Now</th>
                 <th scope="col">Interest</th>
+                <th scope="col">Available</th>
             </tr>
         </thead>
         <tbody>
@@ -47,6 +48,7 @@
                     <td>{{ datas.invest_coin_amount }}</td>
                     <td>{{ datas.present_coin_amount }}</td>
                     <td class="{%if datas.interest_coin_usd_amount > 20 %}text-success{% endif %}">{{ datas.interest_coin_amount }} -> {{ datas.interest_coin_usd_amount }} $</td>
+                    <td>{{ datas.available }}</td>
                 </tr>
             {%endfor%}
         </tbody>
@@ -56,6 +58,7 @@
                 <td class="bl-none br-none"></td>
                 <td class="bl-none br-none"></td>
                 <td class="bl-none br-none">{{ total.coin_usd_interest }} $</td>
+                <td class="bl-none br-none"></td>
             </tr>
         </tfoot>
     </table>

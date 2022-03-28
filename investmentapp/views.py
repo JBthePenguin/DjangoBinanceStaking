@@ -34,6 +34,7 @@ def index(request):
         # spot balance
         spot_balance = round(float(
             next((item for item in spot_balances if item["asset"] == coin), None)["free"]), 8)
+        available = round(flex_saving_amount + spot_balance, 8)
         # invest coin amount
         invest_coin_amount = round(sum(
             Investment.objects.filter(coin=coin).values_list(
@@ -78,7 +79,8 @@ def index(request):
             'buy_invest_usd_amount': buy_invest_usd_amount,
             'present_invest_usd_amount': present_invest_usd_amount,
             'profit_usd_amount': profit_usd_amount,
-            'percent_profit_usd': percent_profit_usd,            
+            'percent_profit_usd': percent_profit_usd,
+            'available': available
         }
         coins_datas.append((coin, datas))
         total_coin_usd_interest += interest_coin_usd_amount

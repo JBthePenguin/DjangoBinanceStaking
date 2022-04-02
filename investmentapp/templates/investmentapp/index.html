@@ -31,7 +31,7 @@
 <body>
 <div class="container pt-2">
     <table class="table caption-top table-striped table-hover table-sm table-bordered text-center bb-none">
-        <caption>Coins interests</caption>
+        <caption>Staking interests</caption>
         <thead>
             <tr>
                 <th scope="col">Symbol</th>
@@ -47,7 +47,7 @@
                     <td>{{ coin }}</td>
                     <td>{{ datas.invest_coin_amount }}</td>
                     <td>{{ datas.present_coin_amount }}</td>
-                    <td class="{%if datas.interest_coin_usd_amount > 20 %}text-success{% endif %}">{{ datas.interest_coin_amount }} -> {{ datas.interest_coin_usd_amount }} $</td>
+                    <td class="{%if datas.interest_coin_usd_amount > 15 %}text-success{% endif %}">{{ datas.interest_coin_amount }} -> {{ datas.interest_coin_usd_amount }} $</td>
                     <td>{{ datas.available }}</td>
                 </tr>
             {%endfor%}
@@ -62,7 +62,7 @@
             </tr>
         </tfoot>
     </table>
-    <p>if coin interest > 20$ -> half interest reinvested (add in Reinvest half coin quantity for 0 $) | half interest solded (add in InterestEarned half coin quantity for earned amount in $)</p>
+    <p>if coin interest > 15$ -> 1/3 interest reinvested (add in Reinvestment 1/3 of interest coin quantity) | 2/3 of interest solded (add in InterestEarned earned amount in $ for 2/3 of interest coin quantity solded)</p>
     <hr>
     <table class="table caption-top table-striped table-hover table-sm table-bordered text-center bb-none">
         <caption>Invest profit</caption>

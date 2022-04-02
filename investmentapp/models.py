@@ -16,3 +16,12 @@ class Investment(models.Model):
     
     class Meta:
         ordering = ('-invest_date', )
+
+
+# class Reinvestment(models.Model):
+#     reinvest_date = models.DateField(verbose_name='date')
+#     coin = models.CharField(choices=coin_choices, max_length=20, verbose_name='coin')
+#     amount = models.FloatField(verbose_name='montant')
+    
+#     class Meta:
+#         ordering = ('-reinvest_date', )

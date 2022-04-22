@@ -1,0 +1,32 @@
+<table class="table caption-top table-striped table-hover table-sm table-bordered text-center bb-none">
+    <caption>Earns</caption>
+    <thead>
+        <tr>
+            <th scope="col">Symbol</th>
+            <th scope="col">Interest</th>
+            <th scope="col">Profit</th>
+            <th scope="col">Total</th>
+            <th scope="col">Percent of invest</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for coin, datas in earns %}
+            <tr>
+                <td>{{ coin }}</td>
+                <td>{{ datas.interest_earned }} $</td>
+                <td>{{ datas.profit_earned }} $</td>
+                <td>{{ datas.all_earned }} $</td>
+                <td>{{ datas.percent_of_invest_earned }}%</td>
+            </tr>
+        {%endfor%}
+    </tbody>
+    <tfoot>
+        <tr>
+            <td class="bl-none br-none"></td>
+            <td class="bl-none">{{ total.interest_earned }} $</td>
+            <td>{{ total.profit_earned }} $</td>
+            <td>{{ total.all_earned }} $</td>
+            <td class="br-none">{{ total.percent_of_invest_earned }}%</td>
+        </tr>
+    </tfoot>
+</table>

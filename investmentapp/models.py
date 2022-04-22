@@ -18,10 +18,20 @@ class Investment(models.Model):
         ordering = ('-invest_date', )
 
 
-# class Reinvestment(models.Model):
-#     reinvest_date = models.DateField(verbose_name='date')
-#     coin = models.CharField(choices=coin_choices, max_length=20, verbose_name='coin')
-#     amount = models.FloatField(verbose_name='montant')
+class Reinvestment(models.Model):
+    reinvest_date = models.DateField(verbose_name='date')
+    coin = models.CharField(choices=coin_choices, max_length=20, verbose_name='coin')
+    amount = models.FloatField(verbose_name='montant')
     
-#     class Meta:
-#         ordering = ('-reinvest_date', )
+    class Meta:
+        ordering = ('-reinvest_date', )
+
+
+class ProfitEarned(models.Model):
+    earn_date = models.DateField(verbose_name='date')
+    coin = models.CharField(choices=coin_choices, max_length=20, verbose_name='coin')
+    amount = models.FloatField(verbose_name='montant')
+    usd_amount = models.FloatField(verbose_name='montant en $')
+    
+    class Meta:
+        ordering = ('-earn_date', )

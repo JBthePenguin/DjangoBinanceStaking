@@ -33,4 +33,12 @@ class FixedSaving(models.Model):
     
     class Meta:
         ordering = ('-subscription_date', )
-        unique_together = ('subscription_date', 'coin',)
+
+
+class InterestEarned(models.Model):
+    earn_date = models.DateField(verbose_name='date')
+    coin = models.CharField(choices=coin_choices, max_length=20, verbose_name='coin')
+    usd_amount = models.FloatField(verbose_name='montant en $')
+    
+    class Meta:
+        ordering = ('-earn_date', )

@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 from django.db.utils import IntegrityError
 import pandas as pd
 import warnings
-from stakingapp.models import Subscription, Redemption, FixedSaving
+from stakingapp.models import Subscription, Redemption, FixedSaving, InterestEarned
 from stakingapp.forms import UploadFileForm
 
 
@@ -101,3 +101,9 @@ class FixedSavingAdmin(admin.ModelAdmin):
         'end_date',
     )
     list_filter = ('subscription_date', 'end_date', ('coin', AllValuesFieldListFilter))
+
+
+@admin.register(InterestEarned)
+class InterestEarnedAdmin(admin.ModelAdmin):
+    list_display = ('earn_date', 'coin', 'usd_amount')
+    list_filter = ('earn_date', ('coin', AllValuesFieldListFilter))

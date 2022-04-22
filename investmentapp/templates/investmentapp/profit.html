@@ -1,0 +1,61 @@
+<table class="table caption-top table-striped table-hover table-sm table-bordered text-center bb-none">
+    <caption>Invest profits</caption>
+    <thead>
+        <tr>
+            <th colspan="3" class="br-black">Price</th>
+            <th colspan="4" class="br-black">Invest values</th>
+            <th rowspan="2" class="bl-none"></th>
+        </tr>
+        <tr>
+            <th scope="col">Symbol</th>
+            <th scope="col">Buy</th>
+            <th scope="col" class="br-black">Last</th>
+            <th scope="col">Buy</th>
+            <th scope="col">Last</th>
+            <th scope="col" class="br-none">Profit</th>
+            <th scope="col" class="bl-none br-black"></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for coin, datas in profits %}
+            <tr>
+                <td>{{ coin }}</td>
+                <td>{{ datas.buy_price_usd }} $</td>
+                <td class="br-black">{{ datas.last_price_usd }} $</td>
+                <td>{{ datas.buy_invest_usd_amount }} $</td>
+                <td>{{ datas.present_invest_usd_amount }} $</td>
+                <td class="br-none">{{ datas.profit_usd_amount }} $</td>
+                <td class="bl-none br-black">
+                    {% if datas.percent_profit_usd > 0 %}
+                        <small class="text-success">+{{ datas.percent_profit_usd }}%</small>
+                    {% elif datas.percent_profit_usd < 0 %}
+                        <small class="text-danger">{{ datas.percent_profit_usd }}%</small>
+                    {% else %}
+                        <small>{{ datas.percent_profit_usd }}%</small>
+                    {%endif%}
+                </td>
+                <td><small class="text-success">{{ datas.sell_profit_to_earn }}</small></td>
+            </tr>
+        {%endfor%}
+    </tbody>
+    <tfoot>
+        <tr>
+            <td class="bl-none br-none"></td>
+            <td class="bl-none br-none"></td>
+            <td class="bl-none br-none"></td>
+            <td class="bl-none">{{ total.buy_invest_usd }} $</td>
+            <td>{{ total.present_invest_usd }} $</td>
+            <td class="br-none">{{ total.profit_usd }} $</td>
+            <td class="bl-none br-none">
+                {% if total.percent_profit_usd > 0 %}
+                    <small class="text-success">+{{ total.percent_profit_usd }}%</small>
+                {% elif total.percent_profit_usd < 0 %}
+                    <small class="text-danger">{{ total.percent_profit_usd }}%</small>
+                {% else %}
+                    <small>{{ total.percent_profit_usd }}%</small>
+                {%endif%}
+            </td>
+        </tr>
+    </tfoot>
+</table>
+<p>if invest profit > 100% -> earn 2/3 of profit (add in ProfitEarned coin quantity and amount in $ for 2/3 of profit at last price)</p>
